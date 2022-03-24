@@ -18,6 +18,10 @@ When("logout the facebook page", async() => {
     await homepageObj.logOutFb();
 })
 
+Then("search something",async() => {
+    await homepageObj.searchBox();
+})
+
 Then("Dashboard for {string} role should be shown", (role) => {
     homepageObj.verifyPageDisplayed("dashboard");
     homepageObj.verifyPageDisplayedRoleWise(role);

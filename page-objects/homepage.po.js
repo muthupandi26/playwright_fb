@@ -29,7 +29,8 @@ exports.Homepage = class Homepage extends BaseAction {
         password2 : '//input[@id="pass"]',
         signin : '//button[@name="login"]',
         logout : 'div[aria-label="Account"]',
-        logout2 : '.a8nywdso.sj5x9vvc.rz4wbd8a.ecm0bbzt div:nth-child(4) .qzhwtbm6.knvmm38d',
+        logout2 : '.a8nywdso.sj5x9vvc.rz4wbd8a.ecm0bbzt div:nth-child(4) .qzhwtbm6.knvmm38d > span',
+        search : '//input[@dir="ltr"]',
     };
 
     validationText = {
@@ -56,13 +57,25 @@ exports.Homepage = class Homepage extends BaseAction {
         await this.type(this.elements.Username, loginData.username);
         await this.type(this.elements.password2, loginData.password);
         await this.click(this.elements.signin);
-        await this.wait(2);
+        await this.wait(4);
     }
 
     async logOutFb() {
         await this.click(this.elements.logout);
         await this.click(this.elements.logout2);
         await this.wait(2)
+    }
+
+    async searchBox() {
+        await this.type(this.elements.search, "Mumbai indians");
+        await this.wait(3)
+        await page.keyboard.down('Enter');
+        await this.wait(4);
+        const visible = await page.isVisible('.tr9rh885.wkznzc2l.sjgh65i0.dhix69tm > div .jktsbyx5 >span > span')
+        return expect(visible).to.equal(true);
+        return expect(page.locator('.tr9rh885.wkznzc2l.sjgh65i0.dhix69tm > div .jktsbyx5 >span > span'))
+        .to.equal('Mumbai Indians’ official Facebook page. Like us for latest news, in-game coverage, and behind-the-scenes updates. #OneFamily');
+        
     }
 
     /**
