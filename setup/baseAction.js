@@ -9,7 +9,7 @@ const { expect } = require('chai');
 let defaultTimeout = 60000;
 
 exports.BaseAction = class BaseAction {
-    async getTexts(locator) {
+    async getTextss(locator) {
          await page.locator(locator).isVisible({ timeout: defaultTimeout });
          const textString = await page.locator(locator).innerText();
          return textString;

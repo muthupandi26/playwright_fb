@@ -31,7 +31,7 @@ exports.Homepage = class Homepage extends BaseAction {
         logout : 'div[aria-label="Account"]',
         logout2 : '.a8nywdso.sj5x9vvc.rz4wbd8a.ecm0bbzt div:nth-child(4) .qzhwtbm6.knvmm38d > span',
         search : '//input[@dir="ltr"]',
-        searchResult :'.sjgh65i0 > div > div > div  > div:nth-child(2) > div:nth-child(1) > div > div > div:nth-child(2) > div > div:nth-child(2) > span > div:nth-child(2)>span:nth-child(1) >span:nth-child(1)',
+        searchResult :'.d2edcug0.o7dlgrpb > div:nth-child(1) > div > div > div >div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div > .j83agx80 > div:nth-child(2) > div > div:nth-child(2) > span > div:nth-child(2) > span:nth-child(1) > span',
     };
 
     validationText = {
@@ -75,7 +75,7 @@ exports.Homepage = class Homepage extends BaseAction {
         
         const stringToMatch = "Mumbai Indians’ official Facebook page. Like us for latest news, in-game coverage, and behind-the-scenes updates. #OneFamily";
 
-        await this.shouldContainText(await this.getTexts(this.elements.searchResult), stringToMatch);
+        await this.shouldContainText(await this.getTextss(this.elements.searchResult), stringToMatch);
         // return expect(page.locator('.tr9rh885.wkznzc2l.sjgh65i0.dhix69tm > div .jktsbyx5 >span > span'))
         // .to.contain('Mumbai Indians’ official Facebook page. Like us for latest news, in-game coverage, and behind-the-scenes updates. #OneFamily');
         
