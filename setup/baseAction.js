@@ -1,5 +1,7 @@
 //import { BaseElement } from './baseElement';
 const { expect } = require('chai');
+// const chai = require('chai');
+// const expect = chai.expect;
 
 // import 'cypress-file-upload';
 // const dayjs = require('dayjs');
@@ -7,6 +9,14 @@ const { expect } = require('chai');
 let defaultTimeout = 60000;
 
 exports.BaseAction = class BaseAction {
+    async getTexts(locator) {
+         await page.locator(locator).isVisible({ timeout: defaultTimeout });
+         const textString = await page.locator(locator).innerText();
+         return textString;
+        }
+    async shouldContainText(text1, text2) {
+        expect(text1).to.contain(text2);
+    }
 
     async type(locator, value) {
         // await page.locator(locator).isVisible({ timeout: defaultTimeout })
